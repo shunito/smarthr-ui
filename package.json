@@ -136,6 +136,7 @@
     "test:build-assets": "node scripts/build-test.ts",
     "test-visual": "reg-suit run",
     "testcafe": "testcafe",
+    "test:a11y": "acot run",
     "e2e": "ts-node scripts/e2e.ts",
     "e2e:dev": "testcafe chrome --host localhost --skip-js-errors",
     "prepare": "husky install"
