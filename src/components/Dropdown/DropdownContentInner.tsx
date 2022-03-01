@@ -113,7 +113,8 @@ const Wrapper = styled.div<{
   contentBox: ContentBoxStyle
 }>`
   ${({ contentBox, themes }) => {
-    const { color, radius, zIndex, shadow } = themes
+    const { color, radius, zIndex, shadow, spacingByChar } = themes
+    const leftValue = `max(${contentBox.left}, ${spacingByChar(0.5)})`
 
     return css`
       display: flex;
@@ -121,11 +122,11 @@ const Wrapper = styled.div<{
       z-index: ${zIndex.OVERLAP_BASE};
       position: absolute;
       top: ${contentBox.top};
-      left: ${contentBox.left};
+      left: ${leftValue};
+      max-width: calc(100% - ${leftValue} - ${spacingByChar(0.5)});
       border-radius: ${radius.m};
       box-shadow: ${shadow.LAYER3};
       background-color: ${color.WHITE};
-      white-space: nowrap;
 
       &.active {
         visibility: visible;
@@ -141,6 +142,7 @@ const ControllableWrapper = styled.div<{
     return css`
       display: flex;
       flex-direction: column;
+      width: 100%;
       ${contentBox.maxHeight && scrollable
         ? `
           max-height: ${contentBox.maxHeight};
