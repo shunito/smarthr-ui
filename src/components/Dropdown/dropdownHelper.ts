@@ -55,9 +55,9 @@ export function getContentBoxStyle(
   const triggerAlignCenter = triggerRect.left + (triggerRect.right - triggerRect.left) / 2
 
   if (triggerAlignCenter <= windowSize.width / 2) {
-    contentBox.left = `${scroll.left + triggerRect.left - 5}px`
+    contentBox.left = `${scroll.left + triggerRect.left}px`
   } else {
-    contentBox.left = `${scroll.left + triggerRect.right - contentSize.width + 5}px`
+    contentBox.left = `${scroll.left + triggerRect.right - contentSize.width}px`
   }
 
   return contentBox
